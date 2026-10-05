@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 
 
 public class SpawnInHand : MonoBehaviour
 {
-    [SerializeField] GameObject glowStick;
+    [SerializeField] List<GameObject> glowSticks;
     public InputActionReference spawnAction;
     [SerializeField] Transform attachTransform;
     void OnEnable()
@@ -20,7 +21,9 @@ public class SpawnInHand : MonoBehaviour
     }
     void Spawn(InputAction.CallbackContext ctx)
     {
-        GameObject gobj = Instantiate(glowStick, attachTransform.position, attachTransform.rotation);
+        if(glowSticks == null) return;
+        var randomGlowstick = Random.Range(0, glowSticks.Count);
+        GameObject gobj = Instantiate(glowSticks[randomGlowstick], attachTransform.position, attachTransform.rotation);
 
         var interactable = gobj.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         interactable.attachTransform = attachTransform;

@@ -8,11 +8,11 @@ public class StickToSurface : MonoBehaviour
     {
         if(hasAttached) return;
         Rigidbody rb = GetComponent<Rigidbody>();
+        CapsuleCollider cc = GetComponent<CapsuleCollider>();
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
-
-        transform.SetParent(collision.transform);
+        cc.enabled = false;
 
         hasAttached = true;
 
