@@ -13,6 +13,10 @@ PrefabInstance:
       value: Greenstick
       objectReference: {fileID: 0}
     - target: {fileID: 3677698643144875237, guid: 1e390c3e639a5944093a8c478f7b2a2c, type: 3}
+      propertyPath: m_Range
+      value: 3.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677698643144875237, guid: 1e390c3e639a5944093a8c478f7b2a2c, type: 3}
       propertyPath: m_Color.b
       value: 0.3754716
       objectReference: {fileID: 0}
@@ -34,15 +38,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6758177782400936649, guid: 1e390c3e639a5944093a8c478f7b2a2c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.48
+      value: 24.598
       objectReference: {fileID: 0}
     - target: {fileID: 6758177782400936649, guid: 1e390c3e639a5944093a8c478f7b2a2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48
+      value: 0.96000004
       objectReference: {fileID: 0}
     - target: {fileID: 6758177782400936649, guid: 1e390c3e639a5944093a8c478f7b2a2c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.117651
+      value: 17.388
       objectReference: {fileID: 0}
     - target: {fileID: 6758177782400936649, guid: 1e390c3e639a5944093a8c478f7b2a2c, type: 3}
       propertyPath: m_LocalRotation.w
