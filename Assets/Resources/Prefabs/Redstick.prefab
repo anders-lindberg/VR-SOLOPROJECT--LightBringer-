@@ -64,6 +64,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5734211293691611835, guid: b8932012a332c5b4cbdd9f8db0e625cc, type: 3}
+      propertyPath: m_Intensity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734211293691611835, guid: b8932012a332c5b4cbdd9f8db0e625cc, type: 3}
+      propertyPath: m_ColorTemperature
+      value: 2791
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734211293691611835, guid: b8932012a332c5b4cbdd9f8db0e625cc, type: 3}
+      propertyPath: m_UseColorTemperature
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7641399849770352082, guid: b8932012a332c5b4cbdd9f8db0e625cc, type: 3}
       propertyPath: m_Name
       value: Redstick
