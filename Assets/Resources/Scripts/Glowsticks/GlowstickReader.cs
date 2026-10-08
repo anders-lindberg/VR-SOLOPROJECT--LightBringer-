@@ -9,6 +9,9 @@ public class GlowstickReader : MonoBehaviour
     [SerializeField] Renderer rend;
     [SerializeField] Light prefabLight;
 
+    public Material glowMaterial;
+
+
     void Awake()
     {
         // Read the prefab’s actual Light settings

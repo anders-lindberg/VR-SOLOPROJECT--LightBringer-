@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2098e05a98c24a14b96e3c8d899a9465, type: 2}
+    - target: {fileID: 9045091498869514851, guid: 9e74ecc53723a63428ecb45344cad3f0, type: 3}
+      propertyPath: glowMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2098e05a98c24a14b96e3c8d899a9465, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

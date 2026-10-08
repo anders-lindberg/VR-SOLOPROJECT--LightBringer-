@@ -14,7 +14,7 @@ public class StickToSurface : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
-        cc.enabled = false;
+        //cc.enabled = false;
 
         hasAttached = true;
         }
