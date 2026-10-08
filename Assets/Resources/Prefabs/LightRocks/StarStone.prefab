@@ -107,4 +107,4 @@ MonoBehaviour:
   greenMat: {fileID: 2100000, guid: 4fa12883ef3fcfc46908c68bd507bd07, type: 2}
   blueMat: {fileID: 2100000, guid: 2098e05a98c24a14b96e3c8d899a9465, type: 2}
   fadeDuration: 1
-  maxRandomDelay: 1.5
+  maxRandomDelay: 2
