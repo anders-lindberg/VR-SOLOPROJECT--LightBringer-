@@ -11,10 +11,18 @@ public class StarStone : MonoBehaviour
     public float maxRandomDelay = 0.5f;
 
     private Renderer rend;
+    private Material runtimeMat;
 
     void Awake()
     {
         rend = GetComponent<Renderer>();
+
+        // Clone the starting material so we never modify the asset
+        runtimeMat = new Material(rend.sharedMaterial);
+        rend.material = runtimeMat;
+
+        // Start fully dark (no emission)
+        runtimeMat.SetColor("_EmissionColor", Color.black);
     }
 
     public void ActivateRandomMaterial(float duration)
@@ -30,15 +38,11 @@ public class StarStone : MonoBehaviour
         float delay = Random.Range(0f, maxRandomDelay);
         yield return new WaitForSeconds(delay);
 
-        Material start = rend.sharedMaterial;
-
-        Color startEmission = start.GetColor("_EmissionColor");
+        // Start from whatever emission the runtimeMat currently has
+        Color startEmission = runtimeMat.GetColor("_EmissionColor");
         Color targetEmission = target.GetColor("_EmissionColor");
 
         float t = 0f;
-
-        // Instanced material for fading
-        Material instanced = rend.material;
 
         while (t < duration)
         {
@@ -46,12 +50,12 @@ public class StarStone : MonoBehaviour
             float lerp = t / duration;
 
             Color currentEmission = Color.Lerp(startEmission, targetEmission, lerp);
-            instanced.SetColor("_EmissionColor", currentEmission);
+            runtimeMat.SetColor("_EmissionColor", currentEmission);
 
             yield return null;
         }
 
-        // Final swap — safe
-        rend.sharedMaterial = target;
+        // Finalize runtime material to match target
+        runtimeMat.CopyPropertiesFromMaterial(target);
     }
 }

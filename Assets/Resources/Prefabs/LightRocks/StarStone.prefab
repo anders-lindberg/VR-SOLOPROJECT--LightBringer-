@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.37, y: 1.23305, z: 5.88}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4e8c1501b2a123743915ebbf61802a4c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,3 +106,5 @@ MonoBehaviour:
   redMat: {fileID: 2100000, guid: dc49e65db5f0aba4f914e9a765f00fa0, type: 2}
   greenMat: {fileID: 2100000, guid: 4fa12883ef3fcfc46908c68bd507bd07, type: 2}
   blueMat: {fileID: 2100000, guid: 2098e05a98c24a14b96e3c8d899a9465, type: 2}
+  fadeDuration: 1
+  maxRandomDelay: 1.5
