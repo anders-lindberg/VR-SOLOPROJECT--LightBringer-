@@ -52,18 +52,21 @@ public class GlowingRock : MonoBehaviour
 
     void ApplyInstant(Material m)
     {
-        rend.material = m;
+        rend.sharedMaterial = m; // identity match
         rockLight.color = m.GetColor("_EmissionColor");
     }
 
     IEnumerator FadeToMaterial(Material target)
     {
-        Material startMat = rend.material;
+        Material startMat = rend.sharedMaterial;
 
         Color startEmission = startMat.GetColor("_EmissionColor");
         Color targetEmission = target.GetColor("_EmissionColor");
 
         float time = 0f;
+
+        // Use instanced material for fading
+        Material instanced = rend.material;
 
         while (time < fadeDuration)
         {
@@ -72,17 +75,16 @@ public class GlowingRock : MonoBehaviour
 
             Color currentEmission = Color.Lerp(startEmission, targetEmission, lerp);
 
-            rend.material.SetColor("_EmissionColor", currentEmission);
+            instanced.SetColor("_EmissionColor", currentEmission);
             rockLight.color = currentEmission;
 
             yield return null;
         }
 
-        // Final swap
-        rend.material = target;
+        // Final swap — safe
+        rend.sharedMaterial = target;
     }
 
-    // ⭐ Add this missing method
     public bool MatchesMaterial(Material other)
     {
         return other == CurrentMaterial;

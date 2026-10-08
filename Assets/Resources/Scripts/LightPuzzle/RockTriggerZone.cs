@@ -10,8 +10,6 @@ public class RockTriggerZone : MonoBehaviour
     void Awake()
     {
         triggerCol = GetComponent<Collider>();
-
-        // Called whenever the glowing rock begins fading to a new material
         glowingRock.OnMaterialChanged += OnRockMaterialChanged;
     }
 
@@ -20,7 +18,6 @@ public class RockTriggerZone : MonoBehaviour
         GlowstickReader stick = other.GetComponent<GlowstickReader>();
         if (stick == null) return;
 
-        // Immediate activation if matching
         if (glowingRock.MatchesMaterial(stick.glowMaterial))
         {
             starfield.ActivateStarfield();
@@ -29,7 +26,6 @@ public class RockTriggerZone : MonoBehaviour
 
     void OnRockMaterialChanged(Material newMat)
     {
-        // Check all colliders currently inside the trigger zone
         Collider[] hits = Physics.OverlapBox(
             triggerCol.bounds.center,
             triggerCol.bounds.extents,

@@ -8,7 +8,7 @@ public class StarStone : MonoBehaviour
     public Material blueMat;
 
     public float fadeDuration = 1f;
-    public float maxRandomDelay = 0.5f;   // each stone waits up to 0.5s before glowing
+    public float maxRandomDelay = 0.5f;
 
     private Renderer rend;
 
@@ -27,7 +27,6 @@ public class StarStone : MonoBehaviour
 
     IEnumerator FadeToMaterial(Material target, float duration)
     {
-        // Random delay before starting the fade
         float delay = Random.Range(0f, maxRandomDelay);
         yield return new WaitForSeconds(delay);
 
@@ -38,18 +37,21 @@ public class StarStone : MonoBehaviour
 
         float t = 0f;
 
+        // Instanced material for fading
+        Material instanced = rend.material;
+
         while (t < duration)
         {
             t += Time.deltaTime;
             float lerp = t / duration;
 
             Color currentEmission = Color.Lerp(startEmission, targetEmission, lerp);
-            rend.sharedMaterial.SetColor("_EmissionColor", currentEmission);
+            instanced.SetColor("_EmissionColor", currentEmission);
 
             yield return null;
         }
 
-        // Final swap
+        // Final swap — safe
         rend.sharedMaterial = target;
     }
 }
