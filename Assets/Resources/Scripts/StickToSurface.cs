@@ -6,7 +6,9 @@ public class StickToSurface : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnCollisionEnter(Collision collision)
     {
-        if(hasAttached) return;
+        if (!collision.collider.CompareTag("Glowstick"))
+        {
+            if(hasAttached) return;
         Rigidbody rb = GetComponent<Rigidbody>();
         CapsuleCollider cc = GetComponent<CapsuleCollider>();
         rb.linearVelocity = Vector3.zero;
@@ -15,6 +17,8 @@ public class StickToSurface : MonoBehaviour
         cc.enabled = false;
 
         hasAttached = true;
+        }
+        
 
     }
 }
